@@ -2,6 +2,17 @@
   'use strict';
   const has = Object.prototype.hasOwnProperty;
 
+  // Lucide face-neutral, with a fixed stroke for use as a standalone image.
+  // Source: https://lucide.dev/icons/face-neutral
+  // License: assets/licenses/lucide-LICENSE (ISC and inherited Feather MIT notices).
+  const blockedVideoThumbnail = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="140" height="100" ' +
+    'viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M15 10V9"/><path d="M8 16h8"/><path d="M9 10V9"/>' +
+    '<circle cx="12" cy="12" r="10"/></svg>'
+  );
+
   // Thanks to uBlock origin
   const defineProperty = function(chain, cValue, middleware = undefined) {
     let aborted = false;
@@ -741,7 +752,7 @@
           },
           thumbnail: {
             thumbnails: [{
-              url: '//s.ytimg.com/yts/img/meh7-vflGevej7.png',
+              url: blockedVideoThumbnail,
               width: 140,
               height: 100,
             }]
@@ -768,7 +779,7 @@
 
     vid.thumbnail = {
       thumbnails: [{
-        url: 'https://s.ytimg.com/yts/img/meh_mini-vfl0Ugnu3.png',
+        url: blockedVideoThumbnail,
       }],
     };
 
